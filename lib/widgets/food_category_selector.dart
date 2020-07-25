@@ -36,12 +36,14 @@ class _FoodCategorySelectorState extends State<FoodCategorySelector> {
                 margin: EdgeInsets.only(left: 20, top: 10),
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
-                    color: index == selectedIndex ? Colors.white.withOpacity(0.3) : Colors.transparent,
+                    color: index == selectedIndex
+                        ? Colors.white.withOpacity(0.3)
+                        : Colors.transparent,
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   categories[index],
                   style: TextStyle(
-                      color:  Colors.white,          
+                      color: Colors.white,
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1),

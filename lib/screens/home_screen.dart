@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:odette/components/product_card.dart';
+import 'package:odette/constants.dart';
+import 'package:odette/models/product.dart';
 import 'package:odette/widgets/food_category_selector.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,31 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          iconSize: 30.0,
-          color: Colors.white,
-          onPressed: () {},
-        ),
-        title: Text(
-          'App title',
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0.0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            iconSize: 30.0,
-            color: Colors.white,
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar: buildAppBar(),
       body: Column(
         children: <Widget>[
           FoodCategorySelector(),
@@ -44,14 +22,18 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               children: <Widget>[
                 Container(
-                    margin: EdgeInsets.only(top: 70),
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).accentColor,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.0),
-                          topRight: Radius.circular(30.0),
-                        ))),
-                ProductCard()
+                  margin: EdgeInsets.only(top: 70),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: products.length,
+                  itemBuilder: (context,index) => ProductCard(product:products[index]))
               ],
             ),
           )
@@ -59,4 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+ 
 }
