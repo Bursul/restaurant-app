@@ -16,7 +16,7 @@ List<Product> products = [
     price: "20 lei",
     description: "aaaaa;.aaaaaaa aaa.aaaa aaaaaaaaaaa aaaaa",
     imageUrl: "assets/negresa_vegana.jpg",
-    categoryId: 1
+    categoryId: 0
   ),
    Product (
     id: 2,
@@ -41,5 +41,21 @@ List<Product> products = [
     description: "aaaaa;.aaaaaaa aaa.aaaa aaaaaaaaaaa aaaaa",
     imageUrl: "assets/negresa_vegana.jpg",
     categoryId: 1
+  ),
+   Product (
+    id: 1,
+    name: "Burger 1",
+    price: "20 lei",
+    description: "aaaaa;.aaaaaaa aaa.aaaa aaaaaaaaaaa aaaaa",
+    imageUrl: "assets/negresa_vegana.jpg",
+    categoryId: 2
+  ),
+   Product (
+    id: 2,
+    name: "Burger 2",
+    price: "25 lei",
+    description: "aaaaa;.aaaaaaa aaa.aaaa aaaaaaaaaaa aaaaa",
+    imageUrl: "assets/negresa_vegana.jpg",
+    categoryId: 3
   ),
 ];

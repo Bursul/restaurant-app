@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:odette/providers/category_change.dart';
+import 'package:provider/provider.dart';
 
 class FoodCategorySelector extends StatefulWidget {
   @override
@@ -31,6 +33,7 @@ class _FoodCategorySelectorState extends State<FoodCategorySelector> {
                 setState(() {
                   selectedIndex = index;
                 });
+                context.read<CategoryChange>().setCategory(index);
               },
               child: Container(
                 margin: EdgeInsets.only(left: 20, top: 10),

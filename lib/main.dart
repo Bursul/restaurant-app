@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:odette/providers/category_change.dart';
 import 'package:odette/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => CategoryChange())
+    ],
+    child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,3 +26,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
