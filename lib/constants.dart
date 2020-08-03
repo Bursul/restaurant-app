@@ -9,11 +9,14 @@ var pBoxShadow = BoxShadow(
 
 AppBar buildAppBar() {
   return AppBar(
-    leading: IconButton(
-      icon: Icon(Icons.menu),
-      iconSize: 30.0,
-      color: Colors.white,
-      onPressed: () {},
+    leading: Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: IconButton(
+        icon: Icon(Icons.menu),
+        iconSize: 30.0,
+        color: Colors.white,
+        onPressed: () {},
+      ),
     ),
     title: Text(
       'App title',
@@ -25,11 +28,14 @@ AppBar buildAppBar() {
     centerTitle: true,
     elevation: 0.0,
     actions: <Widget>[
-      IconButton(
-        icon: Icon(Icons.search),
-        iconSize: 30.0,
-        color: Colors.white,
-        onPressed: () {},
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: IconButton(
+          icon: Icon(Icons.shopping_cart),
+          iconSize: 30.0,
+          color: Colors.white,
+          onPressed: () {},
+        ),
       ),
     ],
   );

@@ -6,9 +6,11 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     Key key,
     @required this.product,
+    @required this.press,
   }) : super(key: key);
 
   final Product product;
+  final Function press;
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +19,23 @@ class ProductCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 10,
+        vertical: 5,
       ),
       height: 160,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: <Widget>[
-          ProductBackgound(),
-          ProductImage(product: product),
-          BuyProductButton(),
-          ProductInformation(
+      child: InkWell(
+        onTap: press,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: <Widget>[
+            ProductBackgound(),
+            ProductImage(product: product),
+            BuyProductButton(),
+            ProductInformation(
               size: size,
               product: product,
             ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -69,21 +74,15 @@ class BuyProductButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 25,
-      bottom: 15,
-      child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
-            color: Colors.greenAccent,
-          ),
-          child: Text(
-            'Buy Now!',
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
-          )),
+      right: 20,
+      bottom: 0,
+      child: FlatButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.add_shopping_cart, size: 15,),
+        label: Text('Add to cart!', style: TextStyle(fontSize: 10),),
+        color: Colors.amber[300],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
     );
   }
 }
@@ -110,7 +109,7 @@ class ProductInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left:10),
+              margin: EdgeInsets.only(left: 10),
               child: Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
@@ -122,17 +121,16 @@ class ProductInformation extends StatelessWidget {
             Spacer(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                  product.description),
+              child: Text(product.description),
             ),
             Spacer(),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(22.0),
-                topRight: Radius.circular(22.0) )
-              ),
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(22.0),
+                      topRight: Radius.circular(22.0))),
               child: Text(product.price),
             )
           ],

@@ -10,10 +10,9 @@ class CategoryChange with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
-  /// Makes `Counter` readable inside the devtools by listing all of its properties
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(IntProperty('count', category));
+    properties.add(IntProperty('category', category));
   }
 }

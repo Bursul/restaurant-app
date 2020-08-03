@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:odette/providers/category_change.dart';
-import 'package:odette/screens/home_screen.dart';
+import 'package:odette/screens/homeScreen/home_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.green[600],
-        accentColor: Colors.lime[50],
+        primaryColor: Colors.green[700],
+        accentColor: Colors.yellow[50],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
