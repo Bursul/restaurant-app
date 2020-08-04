@@ -36,6 +36,7 @@ class _FoodCategorySelectorState extends State<FoodCategorySelector> {
                 context.read<CategoryChange>().setCategory(index);
               },
               child: Container(
+                alignment: Alignment.center,
                 margin: EdgeInsets.only(left: 20, top: 10),
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(

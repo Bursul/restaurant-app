@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:odette/models/product.dart';
-import 'package:odette/screens/productDescription/components/image_carousel.dart';
+import 'package:odette/screens/productDescriptionDialog/components/image_carousel.dart';
 import 'package:odette/screens/productDescription/components/informationArea.dart';
 
 class ProductDescriptionBody extends StatelessWidget {

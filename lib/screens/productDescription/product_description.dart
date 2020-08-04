@@ -4,21 +4,21 @@ import 'package:odette/screens/productDescription/components/descriptionAppBar.d
 import 'package:odette/screens/productDescription/components/descriptionBody.dart';
 import 'package:odette/screens/productDescription/components/descriptionFooter.dart';
 
-class ProductDescription extends StatelessWidget {
-  final Product product;
+// class ProductDescription extends StatelessWidget {
+//   final Product product;
 
-  const ProductDescription({Key key, this.product}) : super(key: key);
+//   const ProductDescription({Key key, this.product}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: ProductDescriptionAppBar(),
-      ),
-      body: ProductDescriptionBody(product: product),
-      bottomNavigationBar: ProductDescriptionFooter(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Theme.of(context).primaryColor,
+//       appBar: PreferredSize(
+//         preferredSize: Size.fromHeight(100.0),
+//         child: ProductDescriptionAppBar(),
+//       ),
+//       body: ProductDescriptionBody(product: product),
+//       bottomNavigationBar: ProductDescriptionFooter(),
+//     );
+//   }
+// }

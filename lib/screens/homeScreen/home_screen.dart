@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:odette/models/product.dart';
 import 'package:odette/providers/category_change.dart';
 import 'package:odette/screens/homeScreen/components/food_category_selector.dart';
+import 'package:odette/screens/homeScreen/components/homeScreenAppBar.dart';
 import 'package:odette/screens/homeScreen/components/product_card.dart';
-import 'package:odette/screens/productDescription/components/descriptionAppBar.dart';
-import 'package:odette/screens/productDescription/product_description.dart';
+import 'package:odette/screens/productDescriptionDialog/productDescriptionDialog.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100.0),
-        child: ProductDescriptionAppBar(),
+        child: HomeScreenAppBar(),
       ),
       body: Column(
         children: <Widget>[
@@ -42,13 +43,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index) => ProductCard(
                     product: getFilteredProducts(context).elementAt(index),
                     press: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProductDescription(
-                                product: getFilteredProducts(context)
-                                    .elementAt(index)),
-                          ));
+                      var elementAt = products
+                          .where((element) =>
+                              element.categoryId ==
+                              Provider.of<CategoryChange>(context,
+                                      listen: false)
+                                  .category)
+                          .elementAt(index);
+                      var action = ProductDescriptionModal(product: elementAt);
+                      showCupertinoModalPopup(
+                          context: context, builder: (context) => action);
                     },
                   ),
                 )
@@ -65,3 +69,4 @@ class _HomeScreenState extends State<HomeScreen> {
         element.categoryId == context.watch<CategoryChange>().category);
   }
 }
+
