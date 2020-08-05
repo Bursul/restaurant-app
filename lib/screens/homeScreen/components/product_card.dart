@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:odette/constants.dart';
 import 'package:odette/models/product.dart';
+import 'package:odette/providers/cart_content.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -29,7 +30,7 @@ class ProductCard extends StatelessWidget {
           children: <Widget>[
             ProductBackgound(),
             ProductImage(product: product),
-            BuyProductButton(),
+            BuyProductButton(product: product),
             ProductInformation(
               size: size,
               product: product,
@@ -69,7 +70,10 @@ class ProductImage extends StatelessWidget {
 class BuyProductButton extends StatelessWidget {
   const BuyProductButton({
     Key key,
+    @required this.product,
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +81,17 @@ class BuyProductButton extends StatelessWidget {
       right: 20,
       bottom: 0,
       child: FlatButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.add_shopping_cart, size: 15,),
-        label: Text('Add to cart!', style: TextStyle(fontSize: 10),),
+        onPressed: () {
+          context.read<CartContent>().addProduct(product);
+        },
+        icon: Icon(
+          Icons.add_shopping_cart,
+          size: 15,
+        ),
+        label: Text(
+          'Add to cart!',
+          style: TextStyle(fontSize: 10),
+        ),
         color: Colors.amber[300],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
@@ -131,7 +143,13 @@ class ProductInformation extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(22.0),
                       topRight: Radius.circular(22.0))),
-              child: Text(product.price),
+              child: Text(
+                product.price + " Lei",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             )
           ],
         ),
@@ -139,6 +157,13 @@ class ProductInformation extends StatelessWidget {
     );
   }
 }
+
+var pBoxShadow = BoxShadow(
+  color: Colors.grey.withOpacity(0.5),
+  spreadRadius: 5,
+  blurRadius: 7,
+  offset: Offset(0, 3),
+);
 
 class ProductBackgound extends StatelessWidget {
   const ProductBackgound({

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:odette/providers/cart_content.dart';
+import 'package:provider/provider.dart';
 import 'package:odette/screens/productDescriptionDialog/productDescriptionDialog.dart';
 
 
@@ -39,6 +41,8 @@ class PriceAndBuy extends StatelessWidget {
           alignment: Alignment.center,
           child: FlatButton.icon(
             onPressed: () {
+              context.read<CartContent>().addProduct(widget.product);
+             
               Navigator.pop(context);
             },
             icon: Icon(Icons.add_shopping_cart),

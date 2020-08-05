@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/providers/cart_content.dart';
 import 'package:odette/providers/category_change.dart';
 import 'package:odette/screens/homeScreen/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +7,8 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => CategoryChange())
+      ChangeNotifierProvider(create: (_) => CategoryChange()),
+      ChangeNotifierProvider(create: (_) => CartContent()),
     ],
     child: MyApp()));
 }
