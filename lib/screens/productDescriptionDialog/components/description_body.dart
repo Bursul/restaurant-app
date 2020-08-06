@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/screens/productDescriptionDialog/components/image_carousel.dart';
 import 'package:odette/screens/productDescriptionDialog/components/price_and_buy.dart';
 import 'package:odette/screens/productDescriptionDialog/productDescriptionDialog.dart';
@@ -44,7 +45,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black54),
+                  color: kNotSoBlack),
             ),
             SizedBox(height: 10),
             Text(
@@ -52,7 +53,7 @@ class _DescriptionBodyState extends State<DescriptionBody> {
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black54),
+                  color: kNotSoBlack),
             ),
             SizedBox(height: 20),
             PriceAndBuy(widget: widget.widget)
@@ -69,12 +70,12 @@ class _DescriptionBodyState extends State<DescriptionBody> {
         child: (_star
             ? Icon(
                 Icons.star,
-                color: Colors.amber,
+                color: kRatingColor,
                 size: 30,
               )
             : Icon(
                 Icons.star_border,
-                color: Colors.amber,
+                color: kRatingColor,
                 size: 30,
               )),
         onTap: () {

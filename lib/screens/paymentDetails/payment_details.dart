@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 
 class Payment extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _PaymentState extends State<Payment> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           iconSize: 30.0,
-          color: Colors.white,
+          color: kNavigationIconsColor,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -33,7 +34,7 @@ class _PaymentState extends State<Payment> {
               },
               icon: Icon(Icons.exit_to_app),
               label: Text('Plătește'),
-              color: Colors.amber[300],
+              color:kButtonColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
             ),

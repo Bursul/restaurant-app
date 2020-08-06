@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/models/product.dart';
 import 'package:odette/providers/cart_content.dart';
 import 'package:provider/provider.dart';
@@ -139,7 +140,7 @@ class ProductInformation extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: kButtonColor,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(22.0),
                       topRight: Radius.circular(22.0))),

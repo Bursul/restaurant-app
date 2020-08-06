@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/providers/cart_content.dart';
 import 'package:odette/screens/cart/cart.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,7 @@ class HomeScreenAppBar extends StatelessWidget {
           child: IconButton(
             icon: Icon(Icons.menu),
             iconSize: 30.0,
-            color: Colors.white,
+            color: kNavigationIconsColor,
             onPressed: () {},
           ),
         ),
@@ -35,8 +36,8 @@ class HomeScreenAppBar extends StatelessWidget {
                 icon: Icon(Icons.shopping_cart),
                 iconSize: 30.0,
                 color: _getFilteredProducts(context) > 0
-                    ? Colors.amber[400]
-                    : Colors.white,
+                    ? kButtonColor
+                    : kNavigationIconsColor,
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -64,14 +65,14 @@ class HomeScreenAppBar extends StatelessWidget {
           padding: EdgeInsets.all(3),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.red,
+            color: kCartItemNoColor,
           ),
           child: Text(
             _getFilteredProducts(context).toString(),
             style: TextStyle(
                 color: _getFilteredProducts(context) > 0
-                    ? Colors.amber[400]
-                    : Colors.white,
+                    ? kButtonColor
+                    : kNavigationIconsColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 15),
           ),

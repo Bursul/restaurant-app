@@ -23,24 +23,29 @@ class _ShippingState extends State<Shipping> {
         ),
       ),
       body: Container(
-
-      ),
+        decoration: BoxDecoration(
+          color: Colors.grey
+        ),
+        child: TextField(
+        decoration: InputDecoration(
+            border: InputBorder.none, hintText: 'Enter a search term'),
+      )),
       bottomNavigationBar: BottomAppBar(
         color: Theme.of(context).primaryColor,
         child: Container(
           child: FlatButton.icon(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Payment()),
-                  );
-              },
-              icon: Icon(Icons.attach_money),
-              label: Text('Continua'),
-              color: Colors.amber[300],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Payment()),
+              );
+            },
+            icon: Icon(Icons.attach_money),
+            label: Text('Continua'),
+            color: Colors.amber[300],
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/models/product.dart';
 import 'package:odette/providers/cart_content.dart';
 import 'package:odette/screens/cart/components/cart_footer.dart';
@@ -82,7 +83,7 @@ class CartProductTile extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
               decoration: BoxDecoration(
-                color: Colors.blueAccent,
+                color: kButtonColor,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(22),
                   topLeft: Radius.circular(22),
@@ -150,7 +151,7 @@ class _ItemCountDropdownState extends State<ItemCountDropdown> {
       icon: Icon(Icons.keyboard_arrow_down),
       iconSize: 15,
       elevation: 0,
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: Colors.black),
       onChanged: (int newValue) {
         setState(() {
           dropdownValue = newValue;

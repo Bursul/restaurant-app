@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/providers/category_change.dart';
 import 'package:provider/provider.dart';
 
@@ -41,13 +42,13 @@ class _FoodCategorySelectorState extends State<FoodCategorySelector> {
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
                     color: index == selectedIndex
-                        ? Colors.white.withOpacity(0.3)
+                        ? kSelectedCategoryColor
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   categories[index],
                   style: TextStyle(
-                      color: Colors.white,
+                      color: kCategoryNameColor,
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1),

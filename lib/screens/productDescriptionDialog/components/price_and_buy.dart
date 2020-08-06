@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/providers/cart_content.dart';
 import 'package:provider/provider.dart';
 import 'package:odette/screens/productDescriptionDialog/productDescriptionDialog.dart';
@@ -25,10 +26,10 @@ class PriceAndBuy extends StatelessWidget {
               style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black54),
+                  color: kNotSoBlack),
             ),
             Text(
-              widget.product.price,
+              widget.product.price + " Lei",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -47,7 +48,7 @@ class PriceAndBuy extends StatelessWidget {
             },
             icon: Icon(Icons.add_shopping_cart),
             label: Text('Add to cart!'),
-            color: Colors.amber[300],
+            color: kButtonColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20)),
           ),

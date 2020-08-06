@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:odette/constants.dart';
 import 'package:odette/models/product.dart';
 import 'package:odette/screens/shipping/shipping_details.dart';
-
 
 class CartFooter extends StatelessWidget {
   const CartFooter({
     Key key,
-      @required this.productList,
+    @required this.productList,
   }) : super(key: key);
-  
+
   final List<Product> productList;
 
   @override
@@ -20,36 +20,41 @@ class CartFooter extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(left: 20),
-              child: Text("Cost Total:", style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.amber
-              ),),
+              child: Text(
+                "Cost Total:",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: kCartCostColor,
+                ),
+              ),
             ),
             Container(
               padding: EdgeInsets.only(left: 10),
-              child: Text(_getTotalCost(productList).toString() + " Lei" , style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.amber
-              ),),
+              child: Text(
+                _getTotalCost(productList).toString() + " Lei",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: kCartCostColor),
+              ),
             ),
             Spacer(),
             Padding(
               padding: EdgeInsets.only(right: 20),
               child: FlatButton.icon(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Shipping()),
-                      );
-                  },
-                  icon: Icon(Icons.local_shipping),
-                  label: Text('Continua'),
-                  color: Colors.amber[300],
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Shipping()),
+                  );
+                },
+                icon: Icon(Icons.local_shipping),
+                label: Text('Continua'),
+                color: kButtonColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
             ),
           ],
         ),
@@ -58,6 +63,8 @@ class CartFooter extends StatelessWidget {
   }
 
   int _getTotalCost(List<Product> products) {
-    return products.map((e) => int.parse(e.price)).fold(0, (value, element) => value+ element);
+    return products
+        .map((e) => int.parse(e.price))
+        .fold(0, (value, element) => value + element);
   }
 }
